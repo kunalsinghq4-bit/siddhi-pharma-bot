@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: siddhi-pharma-bot
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python app.py
+    envVars:
+      - key: SUPABASE_URL
+        value: https://kidmjxrkdcrpipdazosg.supabase.co
+      - key: SUPABASE_KEY
+        value: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtpZG1qeHJrZGNycGlwZGF6b3NnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ5NDE5NzksImV4cCI6MjA5MDUxNzk3OX0.IaMrF-MBMLQSlEoXDfRLd2KlpOvou_EcJwOTQuLj9lk
+      - key: FONNTE_TOKEN
+        value: zopJo8kdFTmQTVrcRbF5
+
+crons:
+  - name: daily-reminders
+    schedule: "0 4 * * *"
+    command: python bot.py
